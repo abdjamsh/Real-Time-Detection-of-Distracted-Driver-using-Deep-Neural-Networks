@@ -2,7 +2,7 @@
 Real time driver distraction using state farm dataset
 In this notebook, I'll use the dataset which includes images of drivers while performing a number of tasks including drinking, texting etc. The aim is to correctly identify if the driver is distracted from driving. We might also like to check what activity the person is performing.
 
-The notebook will be borken into the following steps:
+The notebook will be broken into the following steps:
 
 1. Import the Libraries.
 2. Import the Datasets.
