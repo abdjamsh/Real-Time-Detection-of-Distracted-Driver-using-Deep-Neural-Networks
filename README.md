@@ -14,37 +14,38 @@ The notebook will be borken into the following steps:
 Import the Libraries
 I'll use Keras and Tensorflow libraries to create a Convolutional Neural Network. So, I'll import the necessary libraries to do the same.
 
-from glob import glob
-import random
-import time
-import tensorflow
-import datetime
-os.environ['KERAS_BACKEND'] = 'tensorflow'
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' # 3 = INFO, WARNING, and ERROR messages are not printed
+DATASET
 
-from tqdm import tqdm
+We use State Farm Dataset for training and testing the model. State farm, an insurance company released dataset which contains driver images for Kaggle competition in 2016 for image based driver poster classification. The dataset consist of 22,450 labelled images of 26 subjects which includes different colour, ethnicity, action, age, size etc. these subjects were used to perform classification of the subjects into 10 classes such as normal/safe driving,  talking in the phone by both left and right hands, controlling the radio, text messaging by left hand, test messaging by right hand,  talking to the co passenger, drinking while driving, hair and makeup, reaching behind, etc. each image is labelled with their action class.
 
-import numpy as np
-import pandas as pd
-from IPython.display import FileLink
-import matplotlib.pyplot as plt
-import warnings
-warnings.filterwarnings('ignore')
-import seaborn as sns 
-%matplotlib inline
-from IPython.display import display, Image
-import matplotlib.image as mpimg
-import cv2
+“State farm distracted driver detection - data,”
+https://www.kaggle.com/c/state-farm-distracted-driver-detection/data,
 
-from sklearn.model_selection import train_test_split
-from sklearn.datasets import load_files       
-from keras.utils import np_utils
-from sklearn.utils import shuffle
-from sklearn.metrics import log_loss
+Images overview
+Let's take a look at the various images in the dataset. I'll plot an image for each of the 10 classes. As the directory names are not descriptive, I'll use a map to define the title for each image that is more descriptive.
 
-from keras.models import Sequential, Model
-from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout, BatchNormalization, GlobalAveragePooling2D
-from keras.preprocessing.image import ImageDataGenerator
-from keras.preprocessing import image
-from keras.callbacks import ModelCheckpoint, EarlyStopping
-from keras.applications.vgg16 import VGG16
+                'c0': 'Safe driving', 
+                'c1': 'Texting - right', 
+                'c2': 'Talking on the phone - right', 
+                'c3': 'Texting - left', 
+                'c4': 'Talking on the phone - left', 
+                'c5': 'Operating the radio', 
+                'c6': 'Drinking', 
+                'c7': 'Reaching behind', 
+                'c8': 'Hair and makeup', 
+                'c9': 'Talking to passenger'
+                
+Create a vanilla CNN model
+Building the model
+I'll develop the model with a total of 4 Convolutional layers, then a Flatten layer and then 2 Dense layers. I'll use the optimizer as rmsprop, and loss as categorical_crossentropy.
+
+
+Create a vanilla CNN model with data augmentation
+Here I'm augmenting the previous model classifier, I'll use the data on which I want to train the model. The folder train includes the images I need. I'll generate more images using ImageDataGenerator and split the training data into 80% train and 20% validation split.
+
+
+Train a CNN with Transfer Learning (VGG, MobileNet)
+To reduce training time without sacrificing accuracy, I'll train a CNN using transfer learning.
+
+
+
