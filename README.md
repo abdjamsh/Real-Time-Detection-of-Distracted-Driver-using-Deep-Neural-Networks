@@ -1,4 +1,4 @@
-# Distracted-Driver-using-Deep-Neural-Networks
+# Real Time Detection of Distracted-Driver-using-Deep-Neural-Networks
 Real time driver distraction using state farm dataset
 In this notebook, I'll use the dataset which includes images of drivers while performing a number of tasks including drinking, texting etc. The aim is to correctly identify if the driver is distracted from driving. We might also like to check what activity the person is performing.
 
